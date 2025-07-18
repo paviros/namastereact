@@ -1,35 +1,36 @@
-/** 
-<div id="parent">
-    <div id="child">
-        <h1>I am H1 tag</h1>
-        <h2>I am H2 tag</h2>
-    </div>
-    <div id="child2">
-        <h1>I am H1 tag from child2</h1>
-        <h2>I am H2 tag from child2</h2>
-    </div>
+import React from "react";
+import ReactDOM from "react-dom/client";
+const bird_2 = new URL("./bird_2.png", import.meta.url).href;
+
+//JSX (transpiled before it reaches the JS) - Parcel - Babel
+
+// JSX => Babel transpiles it to React.createElement => ReactElement-JS Object => HTMLElement(render)
+// react element
+const jsxHeading = (
+    <div>
+<h1 className="head" tabIndex="1">Namaste React using JSX 🚀</h1>
+<img src={bird_2} alt="Namaste Logo" width={600} />
 </div>
-*/
+);
 
-const parent = React.createElement(
-"div",
-{ id: "parent" },
-[React.createElement(
-    "div", 
-    { id: "child" },[
-        React.createElement("h1", {}, "I am an H1 tag"), 
-        React.createElement("h2", {}, "I am an H2 tag"),
-    ]), 
-React.createElement(
-    "div", 
-    { id: "child2" },[
-        React.createElement("h1", {}, "I am an H1 tag from child2"), 
-        React.createElement("h2", {}, "I am an H2 tag from child2"),
-    ])
-]);
+console.log(typeof bird_2); // should log: string
+console.log("bird_2 URL:", bird_2); // shows hashed filename like /bird_2.ab1234.png
+
+//React Component
+// Class Based Component - OLD
+// Functional Component - NEW 
+
+//React Functional Component  - its a javascript function which returns a react element 
+const HeadingComponent2 = () => (
+    <div id="container">
+<h1 className="heading">Namaste React Functional Component</h1>
+</div>
+);
 
 
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-console.log(parent);
-const root = ReactDOM.createRoot(document.getElementById("header"));
-root.render(parent);
+root.render(<HeadingComponent2/>);
+
+
+
